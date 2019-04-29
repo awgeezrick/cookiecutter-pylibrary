@@ -1,4 +1,14 @@
+{%- if cookiecutter.scm_versioning == 'yes' %}
+from pkg_resources import get_distribution, DistributionNotFound
+
+try:
+    __version__ = get_distribution(__name__).version
+except DistributionNotFound:
+    # package is not installed
+    pass
+{%- else %}
 __version__ = '{{ cookiecutter.version }}'
+{%- endif %}
 {%- if cookiecutter.c_extension_support == 'cffi' %}
 
 from .{{ cookiecutter.c_extension_module }} import ffi as _ffi
