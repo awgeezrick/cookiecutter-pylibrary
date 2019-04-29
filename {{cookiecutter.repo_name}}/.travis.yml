@@ -1,9 +1,10 @@
 language: python
+python: 3.6
 dist: xenial
-env:
-  global:
-    - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
-    - SEGFAULT_SIGNALS=all
+# env:
+#   global:
+#     - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+#     - SEGFAULT_SIGNALS=all
 matrix:
   include:
     - python: '3.6'
@@ -14,7 +15,7 @@ matrix:
       env:
         - TOXENV=docs
 {%- endif %}
-{%- for env in ['py27', 'py34', 'py35', 'py36', 'py37', 'pypy', 'pypy3'] %}{{ '' }}
+{%- for env in ['py35', 'py36', 'py37', 'pypy3'] %}{{ '' }}
 {%- if env.startswith("pypy3") %}
     - python: 'pypy3.5-6.0'
 {%- elif env.startswith("pypy") %}
@@ -45,7 +46,7 @@ before_install:
   - uname -a
   - lsb_release -a
 install:
-  - pip install tox
+  - pip install tox-travis
   - virtualenv --version
   - easy_install --version
   - pip --version
