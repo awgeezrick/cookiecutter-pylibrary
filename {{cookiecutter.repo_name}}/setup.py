@@ -116,10 +116,10 @@ setup(
         'Operating System :: Unix',
         'Operating System :: POSIX',
         'Operating System :: Microsoft :: Windows',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
+        # 'Programming Language :: Python',
+        # 'Programming Language :: Python :: 2.7',
+        # 'Programming Language :: Python :: 3',
+        # 'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
@@ -143,7 +143,7 @@ setup(
     keywords=[
         # eg: 'keyword1', 'keyword2', 'keyword3',
     ],
-    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
+    python_requires='>=3.5',
     install_requires=[
 {%- if cookiecutter.command_line_interface == 'click' %}
         'click',
@@ -191,6 +191,10 @@ setup(
 {%- if cookiecutter.c_extension_support == 'cython' %} '*.pyx' if Cython else '*.c'
 {%- else %} '*.c'{% endif %}))
     ],
+{%- if cookiecutter.scm_versioning == 'yes' %}
+    use_scm_version=True,
+    setup_requires=['setuptools_scm'],
+{%- endif %}
 {%- endif %}
 {%- endif %}
 )
