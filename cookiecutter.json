@@ -17,6 +17,7 @@
     ],
     "year_to": "{% now 'utc', '%Y' %}",
     "version": "0.0.0",
+    "scm_versioning": ["yes", "no"],
     "license": ["MIT license", "BSD 2-Clause License", "BSD 3-Clause License", "ISC license", "Apache Software License 2.0"],
     "c_extension_support": ["no", "yes", "cffi", "cython"],
     "c_extension_optional": ["no", "yes"],
