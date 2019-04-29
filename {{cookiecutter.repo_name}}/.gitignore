@@ -1,5 +1,13 @@
 *.py[cod]
 
+# data
+/data/
+
+# .ipynb
+/notebooks/
+*.ipynb
+.ipynb_checkpoints
+
 # C extensions
 *.so
 
@@ -42,6 +50,7 @@ htmlcov
 .project
 .pydevproject
 .idea
+.vscode
 *.iml
 *.komodoproject
 
